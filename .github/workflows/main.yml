@@ -19,7 +19,9 @@ jobs:
     - name: update
       run: sudo apt-get update
     - name: install
-      run: sudo apt-get install -y libboost-all-dev && git submodule update --init --recursive
+      run: sudo apt-get install -y libboost-all-dev git 
+    - name: submodule
+      run: git submodule update --init --recursive
     - name: cmake
       run: cmake -H. -BRelease
     - name: build
