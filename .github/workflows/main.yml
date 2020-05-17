@@ -22,7 +22,7 @@ jobs:
     - name: update
       run: sudo apt-get update
     - name: install
-      run: sudo apt-get install -y libboost-dev-all
+      run: sudo apt-get install -y libboost-all-dev
     - name: cmake
       run: cmake -H. -BRelease
     - name: build
