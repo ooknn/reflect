@@ -8,12 +8,20 @@ on:
   pull_request:
     branches: [ master ]
 
+
 jobs:
 
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout submodules
+      uses: srt32/git-actions@v0.0.3
+      with:
+        args: git submodule update --init --recursive
+    - name: update
+      run: apt-get update
+    - name: install
+      run: apt-get install -y libboost-dev-all
     - name: cmake
       run: cmake -H. -BRelease
     - name: build
