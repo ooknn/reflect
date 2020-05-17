@@ -16,12 +16,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-        args: git submodule update --init --recursive
     - name: update
       run: sudo apt-get update
     - name: install
-      run: sudo apt-get install -y libboost-all-dev
+      run: sudo apt-get install -y libboost-all-dev && git submodule update --init --recursive
     - name: cmake
       run: cmake -H. -BRelease
     - name: build
