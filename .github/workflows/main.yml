@@ -20,9 +20,9 @@ jobs:
       with:
         args: git submodule update --init --recursive
     - name: update
-      run: apt-get update
+      run: sudo apt-get update
     - name: install
-      run: apt-get install -y libboost-dev-all
+      run: sudo apt-get install -y libboost-dev-all
     - name: cmake
       run: cmake -H. -BRelease
     - name: build
