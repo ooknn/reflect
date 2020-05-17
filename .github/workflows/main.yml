@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: build-ci
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: cmake
+      run: cmake -H. -BRelease
+    - name: build
+      run: cmake --build Release
+
+    
